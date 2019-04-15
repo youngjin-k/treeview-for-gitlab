@@ -8,6 +8,10 @@ class gitlabTreeview {
     repositoryRef;
     shortcutsProject;
 
+    setting = {
+        open: false
+    };
+
     constructor() {
         if (!this.isGitLab() || !this.isFilePage()) {
             return;
@@ -58,13 +62,35 @@ class gitlabTreeview {
     }
 
     setTreeNav() {
-        const template = `
+        const treeViewTemplate = `
             <div class="treeview">
+                <div class="treeview__header">
+                    <div class="treeview__header_content">
+                        <div class="treeview__project-name">
+                            <i class="fa fa-gitlab"></i>
+                            <span>${this.shortcutsProject}</span>
+                        </div>
+                        <div class="treeview__branch">
+                            <i class="fa fa-code-fork"></i>
+                            <span>${this.repositoryRef}</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="treeview__content"></div>
             </div>
         `;
 
-        document.querySelector('.sidebar-top-level-items').insertAdjacentHTML('beforeend', template);
+        const treeViewHandletemplate = `
+            <div class="treeview-handle">
+                <div class="treeview-open-label">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>treeview</span>
+                </div>
+            </div>
+        `;
+
+        document.querySelector('body').insertAdjacentHTML('beforeend', treeViewTemplate);
+        document.querySelector('body').insertAdjacentHTML('beforeend', treeViewHandletemplate);
 
         const me = this;
         $(document).on('click', '.treeview__item', function (ev) {
@@ -75,6 +101,11 @@ class gitlabTreeview {
             ev.stopPropagation();
             me.openRawFile(this);
         });
+        $(document).on('mouseover', '.treeview-handle', function (ev) {
+            $('body').addClass('treeview-open');
+        });
+
+        //$('body').addClass('treeview-open');
     }
 
     loadData(parent) {

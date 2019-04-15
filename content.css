@@ -12,18 +12,42 @@
 .treeview {
   position: fixed;
   top: 0;
-  left: 100px;
+  left: -300px;
   width: 300px;
-  height: 500px;
-  border: 1px solid #e5e5e5;
+  height: 100%;
+  border-right: 1px solid #e5e5e5;
   background-color: #ffffff;
   z-index: 1000001;
+  transition: 0.1s;
+}
+.treeview .treeview__header {
+  height: 43px;
+  background-color: #3b74f0;
+  display: flex;
+  flex-direction: row;
+}
+.treeview .treeview__header .treeview__header_content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  font-size: 14px;
+}
+.treeview .treeview__header .treeview__header_content .treeview__project-name {
+  color: #ffffff;
+}
+.treeview .treeview__header .treeview__header_content .treeview__branch {
+  color: rgba(255, 255, 255, 0.76);
+}
+.treeview .treeview__header .treeview__header_content .treeview__branch i {
+  padding: 0 3px;
 }
 .treeview .treeview__content {
   width: 100%;
   height: 100%;
   overflow: auto;
   padding: 8px 0;
+  background-color: #fafafa;
 }
 .treeview .treeview__content .treeview__list {
   width: 100%;
@@ -86,6 +110,47 @@
 }
 .treeview .treeview__content .treeview__list .treeview__item[data-state=loading] > .treeview__item-wrapper > .treeview__tree-icon > i:before {
   content: "";
+}
+.treeview-handle {
+  z-index: 1000001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: 0.1s;
+}
+.treeview-handle .treeview-open-label {
+  padding: 10px;
+  width: 30px;
+  height: 100px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.treeview-handle .treeview-open-label i {
+  font-size: 12px;
+}
+.treeview-handle .treeview-open-label span {
+  margin-left: -7px;
+  margin-top: 30px;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(-180deg);
+  writing-mode: tb-rl;
+  font-size: 14px;
+}
+
+body.treeview-open .treeview {
+  left: 0;
+}
+body.treeview-open .treeview-handle {
+  left: -30px;
 }
 
 /*# sourceMappingURL=content.css.map */
