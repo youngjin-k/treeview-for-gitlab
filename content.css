@@ -16,16 +16,16 @@
   width: 300px;
   height: 100%;
   border-right: 2px solid #e5e5e5;
-  background-color: #fafafa;
+  background-color: #232323;
   z-index: 1000001;
-  transition: 0.1s;
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
 }
 .treeview .treeview__header {
   flex: 0 0 auto;
   height: 43px;
-  background-color: #3b74f0;
+  background-color: #333333;
   display: flex;
   flex-direction: row;
 }
@@ -81,21 +81,23 @@
   flex-direction: row;
   cursor: pointer;
   transition: 0.1s;
+  padding-right: 8px;
 }
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper:hover {
-  background-color: #e5e5e5;
+  background-color: rgba(255, 255, 255, 0.16);
 }
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper[data-type=blob]:hover .treeview__file-icon .file-icon {
   display: none;
 }
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper[data-type=blob]:hover .treeview__file-icon .open-raw-file {
-  color: #633df0;
+  color: #9d81f0;
   display: block;
 }
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper .treeview__tree-icon {
   flex: 0 0 auto;
   width: 20px;
   transition: 0.1s;
+  color: rgba(255, 255, 255, 0.86);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -104,7 +106,7 @@
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper .treeview__file-icon {
   flex: 0 0 auto;
   width: 20px;
-  color: #3b74f0;
+  color: rgba(255, 255, 255, 0.86);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -116,7 +118,7 @@
 .treeview .treeview__content .treeview__list .treeview__item .treeview__item-wrapper .treeview__file-name {
   flex: 1 0 auto;
   font-size: 14px;
-  color: #333333;
+  color: rgba(255, 255, 255, 0.86);
   display: flex;
   align-items: center;
 }
@@ -128,7 +130,7 @@
 }
 .treeview .treeview__content .treeview__list .treeview__item[data-state=loading] > .treeview__item-wrapper > .treeview__tree-icon {
   animation: treeview-spin 2s infinite linear;
-  color: #633df0;
+  color: #9d81f0;
 }
 .treeview .treeview__content .treeview__list .treeview__item[data-state=loading] > .treeview__item-wrapper > .treeview__tree-icon > i:before {
   content: "";

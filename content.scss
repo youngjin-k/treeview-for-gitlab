@@ -23,16 +23,16 @@
   width: 300px;
   height: 100%;
   border-right: 2px solid #e5e5e5;
-  background-color: #fafafa;
+  background-color: #232323;
   z-index: 1000001;
-  transition: .1s;
+  transition: .3s;
   display: flex;
   flex-direction: column;
 
   .treeview__header {
     flex: 0 0 auto;
     height: 43px;
-    background-color: #3b74f0;
+    background-color: #333333;
     display: flex;
     flex-direction: row;
 
@@ -98,9 +98,10 @@
           flex-direction: row;
           cursor: pointer;
           transition: .1s;
+          padding-right: 8px;
 
           &:hover {
-            background-color: #e5e5e5;
+            background-color: rgba(255, 255, 255, .16);
           }
 
           &[data-type="blob"]:hover {
@@ -110,7 +111,7 @@
               }
 
               .open-raw-file {
-                color: #633df0;
+                color: #9d81f0;
                 display: block;
               }
             }
@@ -120,13 +121,14 @@
             flex: 0 0 auto;
             width: 20px;
             transition: .1s;
+            color: rgba(255, 255, 255, .86);
             @include flex-center();
           }
 
           .treeview__file-icon {
             flex: 0 0 auto;
             width: 20px;
-            color: #3b74f0;
+            color: rgba(255, 255, 255, .86);
             @include flex-center();
 
             .open-raw-file {
@@ -137,7 +139,7 @@
           .treeview__file-name {
             flex: 1 0 auto;
             font-size: 14px;
-            color: #333333;
+            color: rgba(255, 255, 255, .86);
             display: flex;
             align-items: center;
           }
@@ -161,7 +163,7 @@
           > .treeview__item-wrapper {
             > .treeview__tree-icon {
               animation: treeview-spin 2s infinite linear;
-              color: #633df0;
+              color: #9d81f0;
 
               > i:before {
                 content: "\f1ce";

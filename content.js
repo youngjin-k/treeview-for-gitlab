@@ -48,17 +48,6 @@ class gitlabTreeview {
         this.repositoryRef = document.getElementById('repository_ref').value;
         this.shortcutsProject = document.querySelector('.shortcuts-project').getAttribute('href');
         this.shortcutsProject = this.shortcutsProject.substring(1);
-
-        console.log(`
-        rssToken: ${this.rssToken}
-        rssMode: ${this.rssMode}
-        privateToken: ${this.privateToken}
-        repositoryRef: ${this.repositoryRef}
-        apiRepoTree: ${this.apiRepoTree}
-        apiRootUrl: ${this.apiRootUrl}
-        projectId: ${this.projectId}
-        shortcutsProject: ${this.shortcutsProject}
-        `);
     }
 
     setTreeNav() {
@@ -75,11 +64,11 @@ class gitlabTreeview {
                             <span>${this.repositoryRef}</span>
                         </div>
                     </div>
-                    <div class="treeview__header-actions">
-                        <button type="button" class="treeview__pin-button">
-                            <i class="fa fa-thumb-tack"></i>
-                        </button>
-                    </div>
+                    <!--<div class="treeview__header-actions">-->
+                    <!--    <button type="button" class="treeview__pin-button">-->
+                    <!--        <i class="fa fa-thumb-tack"></i>-->
+                    <!--    </button>-->
+                    <!--</div>-->
                 </div>
                 <div class="treeview__content"></div>
                 <div class="treeview__footer">TreeView for GitLab</div>
@@ -115,7 +104,7 @@ class gitlabTreeview {
             $('html').addClass('treeview-open');
         });
 
-        //$('body').addClass('treeview-open');
+        $('html').addClass('treeview-open treeview__pinned');
     }
 
     loadData(parent) {
@@ -190,7 +179,7 @@ class gitlabTreeview {
 
     getFileIcon(type) {
         let icon = {
-            tree: 'fa-folder-o',
+            tree: 'fa-folder',
             blob: 'fa-file-text-o'
         }[type];
 
