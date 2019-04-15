@@ -5,7 +5,6 @@
   "homepage_url": "https://github.com/youngjin-k/treeview-for-gitlab",
   "version": "0.0.1",
   "permissions": [
-    "<all_urls>",
     "storage"
   ],
   "icons": {
