@@ -13,6 +13,7 @@ class gitlabTreeview {
     };
 
     constructor() {
+        console.log(this.isFilePage());
         if (!this.isGitLab() || !this.isFilePage()) {
             return;
         }
@@ -29,7 +30,8 @@ class gitlabTreeview {
 
     isFilePage() {
         const page = document.querySelector('body').dataset.page;
-        return page === 'projects:show' || 'projects:blob:show';
+        return page === 'projects:show'
+            || page === 'projects:blob:show';
     }
 
     initVariables() {
