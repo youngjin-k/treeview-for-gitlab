@@ -13,7 +13,6 @@ class gitlabTreeview {
     };
 
     constructor() {
-        console.log(this.isFilePage());
         if (!this.isGitLab() || !this.isFilePage()) {
             return;
         }
