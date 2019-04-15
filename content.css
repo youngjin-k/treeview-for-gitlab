@@ -15,12 +15,15 @@
   left: -300px;
   width: 300px;
   height: 100%;
-  border-right: 1px solid #e5e5e5;
-  background-color: #ffffff;
+  border-right: 2px solid #e5e5e5;
+  background-color: #fafafa;
   z-index: 1000001;
   transition: 0.1s;
+  display: flex;
+  flex-direction: column;
 }
 .treeview .treeview__header {
+  flex: 0 0 auto;
   height: 43px;
   background-color: #3b74f0;
   display: flex;
@@ -42,12 +45,31 @@
 .treeview .treeview__header .treeview__header_content .treeview__branch i {
   padding: 0 3px;
 }
+.treeview .treeview__header .treeview__header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.treeview .treeview__header .treeview__header-actions button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  font-size: 18px;
+}
+.treeview .treeview__header .treeview__header-actions button:hover, .treeview .treeview__header .treeview__header-actions button .active {
+  color: #ffffff;
+}
+.treeview .treeview__header .treeview__header-actions button.treeview__pin-button {
+  transform: rotate(45deg);
+}
 .treeview .treeview__content {
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
   overflow: auto;
-  padding: 8px 0;
-  background-color: #fafafa;
 }
 .treeview .treeview__content .treeview__list {
   width: 100%;
@@ -111,6 +133,13 @@
 .treeview .treeview__content .treeview__list .treeview__item[data-state=loading] > .treeview__item-wrapper > .treeview__tree-icon > i:before {
   content: "";
 }
+.treeview .treeview__footer {
+  flex: 0 0 auto;
+  background-color: #8595ad;
+  color: #ffffff;
+  padding: 4px 8px;
+}
+
 .treeview-handle {
   z-index: 1000001;
   position: fixed;
@@ -146,11 +175,26 @@
   font-size: 14px;
 }
 
-body.treeview-open .treeview {
+html.treeview-open .treeview {
   left: 0;
 }
-body.treeview-open .treeview-handle {
+html.treeview-open .treeview-handle {
   left: -30px;
+}
+html.treeview__pinned {
+  margin-left: 300px;
+}
+html.treeview__pinned .treeview__pin-button {
+  transform: rotate(0deg) !important;
+}
+html.treeview__pinned .treeview__pin-button i {
+  color: #ffffff;
+}
+html.treeview__pinned .header-content {
+  padding-left: 300px;
+}
+html.treeview__pinned .nav-sidebar {
+  left: 300px;
 }
 
 /*# sourceMappingURL=content.css.map */

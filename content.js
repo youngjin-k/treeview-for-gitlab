@@ -75,8 +75,14 @@ class gitlabTreeview {
                             <span>${this.repositoryRef}</span>
                         </div>
                     </div>
+                    <div class="treeview__header-actions">
+                        <button type="button" class="treeview__pin-button">
+                            <i class="fa fa-thumb-tack"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="treeview__content"></div>
+                <div class="treeview__footer">TreeView for GitLab</div>
             </div>
         `;
 
@@ -101,8 +107,12 @@ class gitlabTreeview {
             ev.stopPropagation();
             me.openRawFile(this);
         });
+        $(document).on('click', '.treeview__pin-button', function (ev) {
+            ev.stopPropagation();
+            $('html').toggleClass('treeview__pinned');
+        });
         $(document).on('mouseover', '.treeview-handle', function (ev) {
-            $('body').addClass('treeview-open');
+            $('html').addClass('treeview-open');
         });
 
         //$('body').addClass('treeview-open');
