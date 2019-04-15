@@ -71,7 +71,7 @@ class gitlabTreeview {
                     <!--</div>-->
                 </div>
                 <div class="treeview__content"></div>
-                <div class="treeview__footer">TreeView for GitLab</div>
+                <a class="treeview__footer" href="https://github.com/youngjin-k/treeview-for-gitlab" target="_blank">TreeView for GitLab</a>
             </div>
         `;
 
