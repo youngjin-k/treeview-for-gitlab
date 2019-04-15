@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "TreeView for GitLab",
+  "description": "TreeView for GitLab",
+  "version": "0.0.1",
+  "permissions": [
+    "<all_urls>",
+    "storage"
+  ],
+  "icons": {
+    "96": "icon96.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "inject.js"
+  ]
+}
