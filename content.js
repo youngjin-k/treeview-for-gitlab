@@ -71,6 +71,10 @@ class gitlabTreeview {
             ev.stopPropagation();
             me.treeItemClickHandler(this);
         });
+        $(document).on('click', '.open-raw-file', function (ev) {
+            ev.stopPropagation();
+            me.openRawFile(this);
+        });
     }
 
     loadData(parent) {
@@ -102,7 +106,7 @@ class gitlabTreeview {
         let listTemplate = [];
         let i = 0;
         const listLen = list.length;
-        const level = parent ? +parent.dataset.level + 1 : 1;
+        const level = parent ? +parent.dataset.level + 1 : 0;
 
         for (; i < listLen; i++) {
             listTemplate.push(`
@@ -115,12 +119,15 @@ class gitlabTreeview {
                      data-state="close"
                      data-loaded="0"
                      data-level="${level}">
-                    <div class="treeview__item-wrapper" style="padding-left: ${level * 20}px;">
+                    <div class="treeview__item-wrapper" 
+                         style="padding-left: ${level * 20}px;"
+                         data-type="${list[i]['type']}">
                         <div class="treeview__tree-icon">
                             ${list[i]['type'] === 'tree' ? `<i class="fa fa-caret-right"></i>` : `<i class="fa"></i>`}
                         </div>
                         <div class="treeview__file-icon">
-                            <i class="fa ${this.getFileIcon(list[i]['type'])}"></i>
+                            <i class="fa ${this.getFileIcon(list[i]['type'])} file-icon"></i>
+                            <i class="fa fa-external-link-square open-raw-file" data-path="${list[i]['path']}"></i>
                         </div>
                         <div class="treeview__file-name">${list[i]['name']}</div>
                     </div>
@@ -212,6 +219,11 @@ class gitlabTreeview {
                 }
             }
         })
+    }
+
+    openRawFile(item) {
+        const href = `${window.location.origin}/${this.shortcutsProject}/raw/${this.repositoryRef}/${item.dataset.path}`;
+        window.open(href);
     }
 }
 

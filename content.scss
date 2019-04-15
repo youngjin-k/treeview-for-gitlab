@@ -48,6 +48,19 @@
             background-color: #e5e5e5;
           }
 
+          &[data-type="blob"]:hover {
+            .treeview__file-icon {
+              .file-icon {
+                display: none;
+              }
+
+              .open-raw-file {
+                color: #633df0;
+                display: block;
+              }
+            }
+          }
+
           .treeview__tree-icon {
             flex: 0 0 auto;
             width: 20px;
@@ -60,6 +73,10 @@
             width: 20px;
             color: #3b74f0;
             @include flex-center();
+
+            .open-raw-file {
+              display: none;
+            }
           }
 
           .treeview__file-name {

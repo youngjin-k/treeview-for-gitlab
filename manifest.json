@@ -13,6 +13,7 @@
   "content_scripts": [
     {
       "js": [
+        "lib/jquery.min.js",
         "content.js"
       ],
       "css": [
