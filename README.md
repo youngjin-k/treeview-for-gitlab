@@ -1,1 +1,1 @@
-# TreeView for GitLab
+# TreeView for GitLab - chrome extension
