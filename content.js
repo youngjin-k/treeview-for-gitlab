@@ -246,7 +246,7 @@ class gitlabTreeview {
                         success: function (response) {
                             const $html = $(response.html)
                                 .find('.file-content')
-                                .addClass(window.gon.user_color_scheme);
+                                .addClass('white');
                             $(".blob-viewer").replaceWith($html);
                             item.dataset.state = 'open';
                             history.pushState({}, "", href);

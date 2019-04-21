@@ -14,7 +14,7 @@
     {
       "js": [
         "lib/jquery.min.js",
-        "inject.js"
+        "content.js"
       ],
       "css": [
         "content.css"
@@ -22,11 +22,8 @@
       "matches": [
         "<all_urls>"
       ],
-      "run_at": "document_end",
+      "run_at": "document_start",
       "all_frames": true
     }
-  ],
-  "web_accessible_resources": [
-    "content.js"
   ]
 }
