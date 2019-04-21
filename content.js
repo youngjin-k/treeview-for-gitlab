@@ -244,7 +244,10 @@ class gitlabTreeview {
                         url: fullHref + '?format=json&viewer=simple',
                         dataType: 'json',
                         success: function (response) {
-                            $(".blob-viewer").replaceWith(response.html);
+                            const $html = $(response.html)
+                                .find('.file-content')
+                                .addClass(window.gon.user_color_scheme);
+                            $(".blob-viewer").replaceWith($html);
                             item.dataset.state = 'open';
                             history.pushState({}, "", href);
                         }
@@ -263,3 +266,4 @@ class gitlabTreeview {
 $(() => {
     new gitlabTreeview();
 });
+
