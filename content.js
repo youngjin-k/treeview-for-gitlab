@@ -30,7 +30,8 @@ class gitlabTreeview {
     isFilePage() {
         const page = document.querySelector('body').dataset.page;
         return page === 'projects:show'
-            || page === 'projects:blob:show';
+            || page === 'projects:blob:show'
+            || page === 'projects:tree:show';
     }
 
     initVariables() {
